@@ -3,6 +3,7 @@ package gui;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.function.Consumer;
 
 import application.Main;
 import gui.util.Alerts;
@@ -35,12 +36,15 @@ public class MainViewController implements Initializable{
 	
 	@FXML
 	public void onMenuItemDepartmentAction() {
-		loadView2("/gui/DepartmentList.fxml");
+		loadView("/gui/DepartmentList.fxml", (DepartmentListController controller) -> { // janela com ação
+			controller.setDepartmentService(new DepartmentService());
+			controller.updateTableView();
+		});
 	}
 	
 	@FXML
 	public void onMenuItemAboutAction() {
-		loadView("/gui/About.fxml");
+		loadView("/gui/About.fxml", x -> {}); // janela que não tem ação
 	}
 	
 	@Override
@@ -48,8 +52,15 @@ public class MainViewController implements Initializable{
 		
 	}
 
+	/*
+	 * A utilização do Consumer: é para não pricisar criar uma duplicação de codigo loadView
+	 * 1 - a Instanciação do serviço é feito fia uma função callback passada por parametro ao loadview
+	 * 2 - O generics: o consumer pega essa função e executa dentro do loadView
+	 * */
+	
 	//synchronized: esse processamento não vai ser interrompido
-	private synchronized void loadView(String absoluteName) {
+	//parametrização com Consumer <T> para deixar a função genérica
+	private synchronized <T> void loadView(String absoluteName, Consumer<T> initializingAction) {// loadview é uma função gererica do tipo T
 		try {
 			//carregar uma tela
 			FXMLLoader loader = new FXMLLoader(getClass().getResource(absoluteName));
@@ -65,32 +76,9 @@ public class MainViewController implements Initializable{
 			mainVBox.getChildren().add(mainMenu); // adciona o main menu
 			mainVBox.getChildren().addAll(newVBox.getChildren()); //add os filhos da janela que está sendo aberto
 			
-			
-		} catch (IOException e) {
-			//alert personalizado
-			Alerts.showAlert("IO Execption", "Error loading view", e.getMessage(), AlertType.ERROR);
-		}
-	}
-	private synchronized void loadView2(String absoluteName) {
-		try {
-			//carregar uma tela
-			FXMLLoader loader = new FXMLLoader(getClass().getResource(absoluteName));
-			VBox newVBox = loader.load();
-			
-			//Mostra view dentro da janela principal
-			Scene mainScene = Main.getMainScene();// referência para a scena.
-			VBox mainVBox = (VBox) ((ScrollPane) mainScene.getRoot()).getContent();// pega referência para vbox da janela principal
-			
-			//referencia para o menu
-			Node mainMenu = mainVBox.getChildren().get(0); // primeiro filho do vBox da janela principal mainmenu
-			mainVBox.getChildren().clear(); // limpa os filhos do mainVbox
-			mainVBox.getChildren().add(mainMenu); // adciona o main menu
-			mainVBox.getChildren().addAll(newVBox.getChildren()); //add os filhos da janela que está sendo aberto
-			
-			//referencia para o controller da view
-			DepartmentListController controller = loader.getController();
-			controller.setDepartmentService(new DepartmentService());// injeta a dependencia
-			controller.updateTableView();// atualiza os dados da tableview
+			// ativar a função passado por parametro (Executa)
+			T controller = loader.getController(); // retorna um controller do tipo definino na passagem de parametro
+			initializingAction.accept(controller); // função do consumer
 			
 		} catch (IOException e) {
 			//alert personalizado
