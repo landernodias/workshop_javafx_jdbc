@@ -15,6 +15,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
+import model.services.DepartmentService;
 
 public class MainViewController implements Initializable{
 
@@ -34,7 +35,7 @@ public class MainViewController implements Initializable{
 	
 	@FXML
 	public void onMenuItemDepartmentAction() {
-		loadView("/gui/DepartmentList.fxml");
+		loadView2("/gui/DepartmentList.fxml");
 	}
 	
 	@FXML
@@ -64,6 +65,32 @@ public class MainViewController implements Initializable{
 			mainVBox.getChildren().add(mainMenu); // adciona o main menu
 			mainVBox.getChildren().addAll(newVBox.getChildren()); //add os filhos da janela que está sendo aberto
 			
+			
+		} catch (IOException e) {
+			//alert personalizado
+			Alerts.showAlert("IO Execption", "Error loading view", e.getMessage(), AlertType.ERROR);
+		}
+	}
+	private synchronized void loadView2(String absoluteName) {
+		try {
+			//carregar uma tela
+			FXMLLoader loader = new FXMLLoader(getClass().getResource(absoluteName));
+			VBox newVBox = loader.load();
+			
+			//Mostra view dentro da janela principal
+			Scene mainScene = Main.getMainScene();// referência para a scena.
+			VBox mainVBox = (VBox) ((ScrollPane) mainScene.getRoot()).getContent();// pega referência para vbox da janela principal
+			
+			//referencia para o menu
+			Node mainMenu = mainVBox.getChildren().get(0); // primeiro filho do vBox da janela principal mainmenu
+			mainVBox.getChildren().clear(); // limpa os filhos do mainVbox
+			mainVBox.getChildren().add(mainMenu); // adciona o main menu
+			mainVBox.getChildren().addAll(newVBox.getChildren()); //add os filhos da janela que está sendo aberto
+			
+			//referencia para o controller da view
+			DepartmentListController controller = loader.getController();
+			controller.setDepartmentService(new DepartmentService());// injeta a dependencia
+			controller.updateTableView();// atualiza os dados da tableview
 			
 		} catch (IOException e) {
 			//alert personalizado
