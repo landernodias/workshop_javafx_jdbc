@@ -90,7 +90,8 @@ public class DepartmentListController implements Initializable{
 			
 			DepartmentFormController controller = loader.getController();// pega o controller
 			// injeta no controller o departamento
-			controller.setDepartment(obj);
+			controller.setDepartment(obj);// injeção de dependencia da entidade
+			controller.setDepartmentService(new DepartmentService());//injeção de dependencia do serviço
 			controller.updateFormData();//carrega os dados do objeto no formulário
 			
 			Stage dialogStage = new Stage();
