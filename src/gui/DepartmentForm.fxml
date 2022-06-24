@@ -27,7 +27,7 @@
             <Label text="Name" GridPane.rowIndex="1" />
             <TextField fx:id="txId" editable="false" GridPane.columnIndex="1" />
             <TextField fx:id="txName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label fx:id="labelErronName" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label fx:id="labelErrorName" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="1" />
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
                   <Button fx:id="btSave" mnemonicParsing="false" onAction="#onBtSaveAction" text="Save" />
