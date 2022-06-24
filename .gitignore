@@ -29,3 +29,6 @@ nbproject/private/
 build/
 dist/
 nbdist/
+
+#Eclipse
+.settings/
