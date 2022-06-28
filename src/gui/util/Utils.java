@@ -17,22 +17,32 @@ import javafx.util.StringConverter;
 public class Utils {
 
 	public static Stage currentStage(ActionEvent event) {
-		return (Stage) ((Node) event.getSource()).getScene().getWindow(); // Acessa o Stage onde o controler que recebeu o evento está
+		return (Stage) ((Node) event.getSource()).getScene().getWindow(); // Acessa o Stage onde o controler que recebeu
+																			// o evento está
 	}
+
 	// testa se o dados são integer
 	public static Integer tryParseTOInt(String str) {
 		try {
-			return Integer.parseInt(str);			
+			return Integer.parseInt(str);
 		} catch (NumberFormatException e) {
 			return null;
 		}
 	}
-	
+
+	public static Double tryParseTODouble(String str) {
+		try {
+			return Double.parseDouble(str);
+		} catch (NumberFormatException e) {
+			return null;
+		}
+	}
+
 	public static <T> void formatTableColumnDate(TableColumn<T, Date> tableColumn, String format) {
 		tableColumn.setCellFactory(Column -> {
 			TableCell<T, Date> cell = new TableCell<T, Date>() {
 				private SimpleDateFormat sdf = new SimpleDateFormat(format);
-				
+
 				@Override
 				protected void updateItem(Date item, boolean empty) {
 					super.updateItem(item, empty);
@@ -43,15 +53,15 @@ public class Utils {
 					}
 				}
 			};
-			
+
 			return cell;
 		});
 	}
-	
+
 	public static <T> void formatTableColumnDouble(TableColumn<T, Double> tableColumn, int decimalPlaces) {
 		tableColumn.setCellFactory(column -> {
-			TableCell <T, Double> cell = new TableCell<T, Double>(){
-				
+			TableCell<T, Double> cell = new TableCell<T, Double>() {
+
 				@Override
 				protected void updateItem(Double item, boolean empty) {
 					super.updateItem(item, empty);
@@ -66,32 +76,29 @@ public class Utils {
 			return cell;
 		});
 	}
-	
-	//formata a data no formato desejado
+
+	// formata a data no formato desejado
 	public static void formatDatePicker(DatePicker datePiker, String format) {
 		datePiker.setConverter(new StringConverter<LocalDate>() {
-			
 			DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern(format);
-			
+
 			@Override
 			public String toString(LocalDate date) {
-				if(date != null) {
+				if (date != null) {
 					return dateFormatter.format(date);
 				} else {
-					return "";					
+					return "";
 				}
 			}
-			
+
 			@Override
 			public LocalDate fromString(String string) {
-				if(string != null && !string.isEmpty()) {
+				if (string != null && !string.isEmpty()) {
 					return LocalDate.parse(string, dateFormatter);
+				} else {
+					return null;					
 				}
-				return null;
 			}
 		});
-		
-		
 	}
-	
 }
