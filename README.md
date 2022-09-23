@@ -45,4 +45,4 @@ Como descrito na aplicação de JDBC esse sistema consiste em um cadastro de ven
 
 <img src="https://user-images.githubusercontent.com/33238924/192025503-4954f270-b84b-4d96-a295-c43ab3f3c1ac.png" width="400" heigth="300">
 
-Desenvolvido :shipit: por [Nelcione Dias](https://gist.github.com/landernodias)github emojs
+Desenvolvido :shipit: por [Nelcione Dias](https://gist.github.com/landernodias)
