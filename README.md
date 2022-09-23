@@ -13,6 +13,32 @@
 ## Descrição do Projeto
 Esse projeto é uma implementação de interface grafica da aplicação `https://github.com/landernodias/demo-dao-jdbc` desenvolvida durante o treinamento java com jdbc.
 
+### IDEs
+
+[![Eclipse](https://img.shields.io/badge/Eclipse-FE7A16.svg?style=for-the-badge&logo=Eclipse&logoColor=white)](https://www.eclipse.org/downloads/)
+
+### Execução
+
+  - Criar um novo Java Project
+  - No gitHub faça o clone do projeto
+  
+    ```
+     Use > git clone https://github.com/landernodias/workshop_javafx_jdbc.git
+    ```
+    Caso tenha configurado uma chave ssh no seu github:
+    
+    ```
+    Use > git clone git@github.com:landernodias/workshop_javafx_jdbc.git
+    ```
+    
+    ### Base de Dados
+
+ Para esse projeto deve se utilizar a base de dados criada no projeto `https://github.com/landernodias/demo-dao-jdbc.git`
+
+- conectar a base de dados
+```
+> use coursejdbc;
+```
 ### Telas do sistema
 
 #### Tela Inicial da Aplicação
