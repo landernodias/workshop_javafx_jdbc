@@ -11,3 +11,14 @@
  ![Eclipse](https://img.shields.io/badge/Eclipse-FE7A16.svg?style=for-the-badge&logo=Eclipse&logoColor=white)  [![Generic badge](https://img.shields.io/badge/SceneBuilder-2.0-orange.svg)](https://www.oracle.com/java/technologies/javafxscenebuilder-1x-archive-downloads.html)
 
 ## Descrição do Projeto
+Esse projeto é uma implementação de interface grafica da aplicação `https://github.com/landernodias/demo-dao-jdbc` desenvolvida durante o treinamento java com jdbc.
+
+### Telas do sistema
+
+#### Tela Inicial da Aplicação
+<img src="https://user-images.githubusercontent.com/33238924/191791837-5f28b21b-9b19-4201-9920-6c771efddd48.png" width="400" height="300">
+
+Como descrito na aplicação de JDBC esse sistema consiste em um cadastro de vendedores e departamento tais como suas operaçoes de CRUD.
+
+#### Seller Registration / Registro de Rendedores
+<img src="https://user-images.githubusercontent.com/33238924/191996480-518d88df-6970-4991-aaba-8a87d508e757.png" width="400" height="300">
