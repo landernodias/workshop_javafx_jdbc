@@ -20,5 +20,14 @@ Esse projeto é uma implementação de interface grafica da aplicação `https:/
 
 Como descrito na aplicação de JDBC esse sistema consiste em um cadastro de vendedores e departamento tais como suas operaçoes de CRUD.
 
-#### Seller Registration / Registro de Rendedores
+#### Seller Registration / Registro de Vendedores
 <img src="https://user-images.githubusercontent.com/33238924/191996480-518d88df-6970-4991-aaba-8a87d508e757.png" width="400" height="300">
+
+#### Insert / Inserir Novo Vendedor
+<img src="https://user-images.githubusercontent.com/33238924/192013555-c7e49f13-6d9e-4f00-a61d-cfa13f3cfff9.png" width="400" heigth="300">
+
+#### Update/ Atualizar, Editar Informações
+<img src="https://user-images.githubusercontent.com/33238924/192014370-8f7489ae-4c29-43a1-81d4-1258a66249ad.png" width="400" heigth="300">
+
+
+
