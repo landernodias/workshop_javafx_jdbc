@@ -29,5 +29,20 @@ Como descrito na aplicação de JDBC esse sistema consiste em um cadastro de ven
 #### Update/ Atualizar, Editar Informações
 <img src="https://user-images.githubusercontent.com/33238924/192014370-8f7489ae-4c29-43a1-81d4-1258a66249ad.png" width="400" heigth="300">
 
+#### Delete
 
+<img src="https://user-images.githubusercontent.com/33238924/192024654-601f51f2-0126-41b9-a4d3-285e9780f83a.png" width="400" heigth="300">
 
+<img src="https://user-images.githubusercontent.com/33238924/192024659-4c1a9d50-75ba-4eab-a4e1-545abd47809c.png" width="400" heigth="300">
+
+<img src="https://user-images.githubusercontent.com/33238924/192024661-408f469f-9adb-4e90-ba0c-671f6989daef.png" width="400" heigth="300">
+
+#### Custom Exception (exessão personalizada / Mensagem de erros)
+
+<img src="https://user-images.githubusercontent.com/33238924/192025305-8269f07a-5953-497a-bb24-933ecd4b6dff.png" width="400" heigth="300">
+
+#### Help
+
+<img src="https://user-images.githubusercontent.com/33238924/192025503-4954f270-b84b-4d96-a295-c43ab3f3c1ac.png" width="400" heigth="300">
+
+Desenvolvido :shipit: por [Nelcione Dias](https://gist.github.com/landernodias)github emojs
